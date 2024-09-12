@@ -19,6 +19,7 @@
         a {
             color: var(--tg-theme-link-color);
         }
+
         #viewport {
             position: fixed;
             left: 0;
@@ -53,11 +54,20 @@
             padding: 4px;
             vertical-align: top;
         }
+
         #viewport-params-size {
             top: 4px;
         }
+
         #viewport-params-expand {
             top: 30px;
+        }
+
+        #card-display {
+            margin: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #000;
         }
     </style>
 </head>
@@ -68,8 +78,7 @@
             <a href="https://ton.org/"><img width="80" src="./assets/img.webp" alt="logo"></a>
         </div>
         <h1>Таро</h1>
-        <a>Откройте тайны судьбы с помощью бота Таро. Задайте вопрос и получите мудрые ответы карт на ваши жизненные ситуации.</a>
-        <!-- <button onclick="Telegram.WebApp.showAlert('Hello World!');">Launch Alert</button> -->
+        <p>Откройте тайны судьбы с помощью бота Таро. Задайте вопрос и получите мудрые ответы карт на ваши жизненные ситуации.</p>
         <button onclick="showPopup();">by Syrym Joli</button>
 
         <h1>Links</h1>
@@ -80,22 +89,31 @@
             <li>
                 <a href="javascript:Telegram.WebApp.openLink('https://ton.org/');">Open link in external browser</a>
             </li>
-            <li>
-                <a href="javascript:Telegram.WebApp.openLink('https://telegra.ph/api',{try_instant_view:true});">Open link inside Telegram webview</a>
-            </li>
         </ul>
 
         <h1>Buttons</h1>
         <button onclick="Telegram.WebApp.expand();">Expand Webview</button>
         <button onclick="toggleMainButton();">Toggle Main Button</button>
+
+        <h1>Tarot Card</h1>
+        <div id="card-display">Нажмите кнопку "Main Button", чтобы вытянуть карту Таро.</div>
     </main>
     <div id="viewport"></div>
     <div id="viewport-params-size"></div>
     <div id="viewport-params-expand"></div>
+
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
         // Init TWA
         Telegram.WebApp.ready();
+
+        // Tarot cards
+        const tarotCards = [
+            "The Fool", "The Magician", "The High Priestess", "The Empress", "The Emperor",
+            "The Hierophant", "The Lovers", "The Chariot", "Strength", "The Hermit",
+            "Wheel of Fortune", "Justice", "The Hanged Man", "Death", "Temperance",
+            "The Devil", "The Tower", "The Star", "The Moon", "The Sun", "Judgment", "The World"
+        ];
 
         // Event occurs whenever theme settings are changed in the user's Telegram app (including switching to night mode).
         Telegram.WebApp.onEvent('themeChanged', function() {
@@ -106,9 +124,13 @@
         Telegram.WebApp.MainButton.setParams({
             text: 'Main Button'
         });
+
+        // Event handler for MainButton click
         Telegram.WebApp.MainButton.onClick(function () {
-            Telegram.WebApp.showAlert('Main Button was clicked')
+            const randomCard = tarotCards[Math.floor(Math.random() * tarotCards.length)];
+            document.getElementById('card-display').innerText = "Ваша карта: " + randomCard;
         });	
+
         Telegram.WebApp.MainButton.show();
 
         // Function to call showPopup API
@@ -136,6 +158,7 @@
             }
         };
 
+        // Viewport data
         function setViewportData() {
             var sizeEl = document.getElementById('viewport-params-size');
             sizeEl.innerText = 'width: ' + window.innerWidth + ' x ' + 
@@ -153,10 +176,8 @@
         Telegram.WebApp.onEvent('themeChanged', function() {
             document.body.setAttribute('style', '--bg-color:' + Telegram.WebApp.backgroundColor);
         });
-
     </script>
 
-    <!-- Eruda is console for mobile browsers -->
     <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
     <script>eruda.init();</script>
 </body>
