@@ -69,8 +69,8 @@
         </div>
         <h1>Таро</h1>
         <a>Откройте тайны судьбы с помощью бота Таро. Задайте вопрос и получите мудрые ответы карт на ваши жизненные ситуации.</a>
-        <button onclick="Telegram.WebApp.showAlert('Hello World!');">Launch Alert</button>
-        <button onclick="showPopup();">Launch Popup</button>
+        <!-- <button onclick="Telegram.WebApp.showAlert('Hello World!');">Launch Alert</button> -->
+        <button onclick="showPopup();">by Syrym Joli</button>
 
         <h1>Links</h1>
         <ul>
@@ -114,15 +114,15 @@
         // Function to call showPopup API
         function showPopup() {
             Telegram.WebApp.showPopup({
-                title: 'Title',
-                message: 'Some message',
+                title: 'Author',
+                message: 'Hello',
                 buttons: [
-                    {id: 'link', type: 'default', text: 'Open ton.org'},
+                    {id: 'link', type: 'default', text: 'write tg'},
                     {type: 'cancel'},
                 ]
             }, function(btn) {
                 if (btn === 'link') {
-                    Telegram.WebApp.openLink('https://ton.org/');
+                    Telegram.WebApp.openLink('https://t.me/Syrym');
                 }
             });
         };
