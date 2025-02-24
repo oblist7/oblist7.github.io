@@ -1,23 +1,78 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сырым Жолимбетов - C#/.NET Разработчик</title>
-    <link rel="stylesheet" href="mystyle.css">
+    <title>Syrym Zholimbetov - C#/.NET Developer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="assets/smile-beam.svg">
 </head>
 <body>
     <header>
-        <h1>Сырым Жолимбетов</h1>
-        <p>C#/.NET Разработчик</p>
+        <img src="assets/photo.jpg" alt="Syrym Zholimbetov" class="profile-photo">
+        <h1>Syrym Zholimbetov</h1>
+        <p>C#/.NET Developer</p>
     </header>
-    <section class="intro">
-        <h2>Привет!</h2>
-        <p>Я Сырым — разработчик с опытом более 7 лет. Создаю приложения на ASP.NET Core и Angular.</p>
-        <a href="about.html" class="btn">Узнать больше</a>
+    <section id="about">
+        <h2>About Me 🌟</h2>
+        <p><span id="age"></span> years old, born Oct 7, 1993. Baikonur, Kazakhstan 🇰🇿. Open to UAE relocation and travel.</p>
     </section>
-    <footer>
-        <p>Email: syrym.joli@gmail.com | Telegram: @Syrym | GitHub: oblist7</p>
-    </footer>
+    <section id="experience">
+        <h2>Experience 💼</h2>
+        <div class="job">
+            <h3>2022–2024</h3>
+            <p>Engineering and Technical Center of the Administrative Department of the President of the Republic of Kazakhstan - Fullstack Developer</p>
+            <div class="details">Developed features for medical systems using Entity Framework (PostgreSQL) and Angular.</div>
+        </div>
+        <div class="job">
+            <h3>2017–2022</h3>
+            <p><a href="https://clockster.com" target="_blank">Clockster</a> - Startup Developer</p>
+            <div class="details">Built apps with ASP.NET and Laravel, configured facial recognition hardware.</div>
+        </div>
+        <div class="job">
+            <h3>2013–2017</h3>
+            <p>Compass LLC - Design Engineer</p>
+            <div class="details">
+                Designed and developed technical drawings and specifications.
+                Reviewed designs for compliance with industry standards.
+                Reconstructed site plans and handled 3D modeling tasks.
+            </div>
+        </div>
+    </section>
+    <section id="education">
+        <h2>Education 🎓</h2>
+        <p><a href="https://tomorrow-school.ai/" target="_blank">Tomorrow School</a> (2025)</p>
+        <p>Bachelor’s (2013–2017), Kyrgyz State Technical University named after I. Razzakov</p>
+        <p>Associate Degree (2009–2013), Baikonur Electro-Radiotechnical College named after M.I. Nedelin</p>
+    </section>
+    <section id="contacts">
+        <h2>Contact 📬</h2>
+        <div class="contact-container">
+            <div class="contact-text">
+                <p>📞 +7 (776) 116-77-77</p>
+                <p>✉️ <a href="mailto:syrym.joli@gmail.com">syrym.joli@gmail.com</a></p>
+                <p>🌐 <a href="https://www.linkedin.com/in/syrym-joli/" target="_blank">linkedin.com/in/syrym-joli</a> | <a href="https://github.com/oblist7" target="_blank">github.com/oblist7</a></p>
+            </div>
+            <div class="qr-container">
+                <img src="assets/qr-code.jpg" alt="Telegram QR" class="qr-code">
+                <p><a href="https://t.me/Syrym" target="_blank">t.me/Syrym</a></p>
+            </div>
+        </div>
+    </section>
+    <script>
+        function calculateAge(birthDate) {
+            const today = new Date();
+            const birth = new Date(birthDate);
+            let age = today.getFullYear() - birth.getFullYear();
+            const monthDiff = today.getMonth() - birth.getMonth();
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+                age--;
+            }
+            return age;
+        }
+        const birthDate = "1993-10-07";
+        const age = calculateAge(birthDate);
+        document.getElementById("age").textContent = age;
+    </script>
 </body>
 </html>

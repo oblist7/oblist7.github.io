@@ -1,0 +1,64 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #1a1a1a;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
+header {
+    text-align: center;
+    padding: 20px;
+    background: #222;
+}
+.profile-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.qr-code {
+    width: 80px;
+    height: 80px;
+}
+h1 { font-size: 2em; margin: 0; }
+h2 { font-size: 1.5em; margin: 10px 0; }
+h3 { font-size: 1.2em; margin: 0; }
+section {
+    padding: 15px;
+    max-width: 800px; /* Увеличена ширина с 600px до 800px */
+    margin: 0 auto;
+}
+.job { margin-bottom: 15px; }
+.details {
+    background: #333;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+a { color: #00aaff; }
+body, html { height: 100%; overflow: auto; }
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.contact-text {
+    flex: 1;
+    margin-right: 20px;
+}
+.qr-container {
+    text-align: center;
+}
+.qr-container p {
+    margin: 5px 0 0;
+}
+@media (max-width: 768px) {
+    .profile-photo { width: 80px; height: 80px; }
+    h1 { font-size: 1.5em; }
+    h2 { font-size: 1.2em; }
+    .qr-code { width: 60px; height: 60px; }
+    .contact-container { flex-direction: column; align-items: flex-start; }
+    .contact-text { margin-right: 0; margin-bottom: 10px; }
+    .qr-container { margin-top: 10px; }
+}
